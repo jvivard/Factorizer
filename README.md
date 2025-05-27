@@ -16,6 +16,12 @@ A web application that allows users to upload screenshots of social media posts,
 - **Backend**: Node.js, Express
 - **APIs**: Perplexity Sonar Pro API
 
+## GitHub Repository
+
+This project is maintained at: [https://github.com/jvivard/social-media-fact-checker](https://github.com/jvivard/social-media-fact-checker)
+
+Feel free to contribute by submitting pull requests or reporting issues!
+
 ## Getting Started
 
 ### Prerequisites
@@ -27,7 +33,7 @@ A web application that allows users to upload screenshots of social media posts,
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/social-fact-checker.git
+   git clone https://github.com/jvivard/social-media-fact-checker.git
    cd social-fact-checker
    ```
 
