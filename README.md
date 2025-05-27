@@ -22,6 +22,10 @@ This project is maintained at: [https://github.com/jvivard/social-media-fact-che
 
 Feel free to contribute by submitting pull requests or reporting issues!
 
+## Contributors
+
+- [jvivard](https://github.com/jvivard) - Creator and maintainer
+
 ## Getting Started
 
 ### Prerequisites
