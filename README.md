@@ -1,105 +1,114 @@
-# Social Media Fact Checker
+# FACTORIZER - AI-Powered Fact-Checking Browser Extension
 
-A web application that allows users to upload screenshots of social media posts, extract text using OCR, and fact-check the extracted content using Perplexity's Sonar Pro API.
+**FACTORIZER: Instantly verify your social feed.**
+
+FACTORIZER is a browser extension designed to help you quickly and easily fact-check information you encounter on popular social media platforms. It leverages the power of AI through the Perplexity API to provide ratings, explanations, and sources for claims found in text and images.
 
 ## Features
 
-- Screenshot upload and preview
-- Text extraction using Tesseract.js OCR
-- Fact-checking with Perplexity Sonar Pro API
-- Detailed analysis of claims with sources and citations
-- Responsive, modern UI with Tailwind CSS
-- Error handling and recovery
-- User-friendly interface
-- Daily content updates
-- Mobile-responsive design
+*   **Inline Fact-Checking:** Adds "Fact Check" buttons directly to posts on supported social media platforms.
+*   **Image Fact-Checking:** Right-click on an image containing text to extract the text (via OCR.space API) and get a fact-check.
+*   **Selected Text Fact-Checking:** Right-click on any selected text on a webpage to initiate a fact-check.
+*   **AI-Powered Analysis:** Utilizes the Perplexity API to provide:
+    *   A clear rating (e.g., True, Mostly False, Mixed).
+    *   A concise explanation of the rating.
+    *   Links to supporting sources.
+*   **Supported Platforms (for inline buttons):**
+    *   Twitter/X
+    *   Facebook
+    *   Instagram
+    *   LinkedIn
+    *   TikTok
+    *   *(Note: Platform layouts change frequently; selectors may need updates.)*
+*   **Customizable Options:**
+    *   Configure your Perplexity API key.
+    *   Configure your OCR.space API key (for image checking).
+    *   Toggle display preferences.
+*   **Result Caching:** Caches recent fact-checks to improve speed and reduce API calls.
+*   **User-Friendly Interface:** Clean popup for statistics and quick settings, and a dedicated options page.
 
-## Tech Stack
+## Project Structure
 
-- **Frontend**: React, Tailwind CSS, Tesseract.js
-- **Backend**: Node.js, Express
-- **APIs**: Perplexity Sonar Pro API
+The entire FACTORIZER project is contained within the `/extension` directory:
 
-## GitHub Repository
+*   `manifest.json`: Defines the extension's properties, permissions, and components.
+*   `background.js`: Service worker handling API calls, context menu logic, caching, and core operations.
+*   `content.js`: Injected into web pages to interact with social media content, add buttons, and display results.
+*   `content.css`: Styles for the UI elements injected by `content.js`.
+*   `popup.html`, `popup.js`, `popup.css` (inline): UI for the browser action popup.
+*   `options.html`, `options.js`, `options.css` (inline): UI for the extension's settings page.
+*   `/icons`: Contains the extension's icons in various sizes.
+*   `test.html`: A local page for testing context menu functionality.
 
-This project is maintained at: [https://github.com/jvivard/social-media-fact-checker](https://github.com/jvivard/social-media-fact-checker)
-
-Feel free to contribute by submitting pull requests or reporting issues!
-
-## Contributors
-
-- [jvivard](https://github.com/jvivard) - Creator and maintainer
+This project **does not** require a separate client or server component to run; it operates entirely as a browser extension.
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js (v14 or higher)
-- Perplexity API key (get one from [Perplexity AI](https://www.perplexity.ai/))
+*   Google Chrome (or a Chromium-based browser that supports Manifest V3 extensions).
+*   A Perplexity AI API key. You can get one from [Perplexity AI](https://docs.perplexity.ai/docs/getting-started).
+*   (Optional, for image fact-checking) An OCR.space API key. A free key is available at [OCR.space](https://ocr.space/ocrapi).
 
 ### Installation
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/jvivard/social-media-fact-checker.git
-   cd social-fact-checker
-   ```
+1.  **Clone or Download the Repository:**
+    ```bash
+    git clone https://github.com/jvivard/Factorizer.git
+    cd Factorizer
+    ```
+    *(If you downloaded a ZIP, extract it.)*
 
-2. Install backend dependencies:
-   ```
-   cd server
-   npm install
-   ```
+2.  **Load the Extension in Chrome:**
+    *   Open Chrome and navigate to `chrome://extensions/`.
+    *   Enable **Developer mode** using the toggle switch in the top-right corner.
+    *   Click the **"Load unpacked"** button.
+    *   Navigate to the directory where you cloned/extracted the project and select the `extension` sub-directory (i.e., the directory containing `manifest.json`).
 
-3. Create a `.env` file in the server directory:
-   ```
-   PORT=5000
-   PERPLEXITY_API_KEY=your_perplexity_api_key_here
-   ```
+3.  **Configure API Keys:**
+    *   Once loaded, click on the FACTORIZER extension icon in your browser toolbar.
+    *   Click "Open Options".
+    *   Enter your Perplexity API key.
+    *   Enter your OCR.space API key if you want to use the image fact-checking feature.
+    *   Save your settings.
 
-4. Install frontend dependencies:
-   ```
-   cd ../client
-   npm install
-   ```
+### Usage
 
-### Running the Application
+*   **Inline Buttons:** Browse supported social media sites. FACTORIZER should automatically add "Fact Check" buttons to posts. Click these to get an analysis.
+*   **Image Right-Click:** Right-click on an image on any webpage. If it contains text, select "Fact check this image" from the context menu.
+*   **Text Selection Right-Click:** Select any text on a webpage, right-click, and choose "Fact check selected text".
+*   **Popup:** Click the FACTORIZER icon in your toolbar to view statistics, access quick settings, or go to the main options page.
 
-1. Start the backend server:
-   ```
-   cd server
-   npm run dev
-   ```
+## Built With
 
-2. Start the frontend application:
-   ```
-   cd ../client
-   npm start
-   ```
+*   **Languages:** JavaScript (ES6+), HTML5, CSS3
+*   **Platform:** Google Chrome (Manifest V3 Extension)
+*   **APIs:**
+    *   Perplexity AI API (model: `sonar`)
+    *   OCR.space API
+    *   Chrome Extension APIs (`storage`, `contextMenus`, `runtime`, `scripting`)
+*   **Tools:** Git, GitHub
 
-3. Open your browser and navigate to `http://localhost:3000`
+## About This Project
 
-## Usage
+### Inspiration
 
-1. Upload a screenshot of a social media post
-2. Click "Verify" to extract text and fact-check the content
-3. Review the fact-check results, including overall rating, claims analysis, and sources
+In an era of information overload, FACTORIZER was created to provide a simple, accessible tool for verifying information directly within social media feeds, empowering users to make more informed decisions.
 
-## Future Improvements
+### What Was Learned
 
-- Enhanced accuracy with multi-model verification
-- Real-time social media integration
-- Browser extension for instant fact-checking
-- User accounts to save and track fact-checking history
-- Additional language support
+This project involved learning about Manifest V3 extension development, integrating third-party APIs (Perplexity, OCR.space), asynchronous JavaScript, DOM manipulation for UI injection, and robust debugging techniques for browser environments.
+
+### Challenges Faced
+
+*   **Dynamic Social Media UIs:** Constantly changing HTML structures on social media sites require ongoing updates to CSS selectors for button injection.
+*   **API Model Name Volatility:** Perplexity API model names changed during development, requiring research and updates to maintain functionality.
+*   **Context Menu Reliability:** Ensuring context menus appear consistently across browser states.
+
+## Contributing
+
+While this project was developed as a demonstration, contributions or suggestions are welcome! Feel free to open an issue or submit a pull request if you have ideas for improvements.
 
 ## License
 
-MIT
-
-## Acknowledgements
-
-- [Perplexity AI](https://www.perplexity.ai/) for their Sonar Pro API
-- [Tesseract.js](https://tesseract.projectnaptha.com/) for OCR capabilities
-- [React](https://reactjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/) 
+This project is licensed under the MIT License - see the `LICENSE` file for details (if one is added, otherwise assume MIT). 
