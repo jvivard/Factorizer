@@ -12,6 +12,7 @@ A web application that allows users to upload screenshots of social media posts,
 - Error handling and recovery
 - User-friendly interface
 - Daily content updates
+- Mobile-responsive design
 
 ## Tech Stack
 

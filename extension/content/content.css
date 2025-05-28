@@ -1,0 +1,292 @@
+/**
+ * Social Media Fact Checker Extension - Content CSS
+ * Styles for fact-check buttons and result displays
+ */
+
+/* Button container */
+.fact-check-container {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 8px;
+}
+
+/* Base button style */
+.fact-check-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #e8f3ff;
+  color: #1a73e8;
+}
+
+/* Button hover state */
+.fact-check-btn:hover {
+  background-color: #d0e7ff;
+}
+
+/* Button states */
+.fact-check-btn.checking {
+  background-color: #f1f8fe;
+  color: #1a73e8;
+  pointer-events: none;
+}
+
+.fact-check-btn.checked {
+  background-color: #e5f5ea;
+  color: #137333;
+}
+
+.fact-check-btn.error {
+  background-color: #fce8e8;
+  color: #c5221f;
+}
+
+/* Spinner animation */
+.spin {
+  animation: rotate 1.5s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Tooltip */
+.fact-check-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  max-width: 240px;
+  z-index: 9999;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 8px;
+  white-space: normal;
+  text-align: center;
+}
+
+.fact-check-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+/* Results container */
+.fact-check-results {
+  margin: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  max-width: 600px;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  border-left: 4px solid #999;
+}
+
+/* Rating color variants */
+.fact-check-results.rating-true {
+  border-left-color: #34a853;
+}
+
+.fact-check-results.rating-false {
+  border-left-color: #ea4335;
+}
+
+.fact-check-results.rating-mixed, 
+.fact-check-results.rating-misleading {
+  border-left-color: #fbbc05;
+}
+
+.fact-check-results.rating-unverifiable {
+  border-left-color: #999;
+}
+
+.fact-check-results.hidden {
+  display: none;
+}
+
+/* Results header */
+.fact-check-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Fact-check badge */
+.fact-check-badge {
+  font-weight: 600;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #f1f3f4;
+  color: #202124;
+}
+
+.fact-check-badge.rating-true {
+  background-color: #e6f4ea;
+  color: #137333;
+}
+
+.fact-check-badge.rating-false {
+  background-color: #fce8e6;
+  color: #c5221f;
+}
+
+.fact-check-badge.rating-mixed,
+.fact-check-badge.rating-misleading {
+  background-color: #fef7e0;
+  color: #b06000;
+}
+
+/* Close button */
+.fact-check-close {
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  line-height: 1;
+  color: #5f6368;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.fact-check-close:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Summary section */
+.fact-check-summary {
+  padding: 16px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #202124;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Claims section */
+.fact-check-claims {
+  padding: 0 16px 16px;
+}
+
+/* Individual claim */
+.fact-check-claim {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.fact-check-claim:first-child {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.fact-check-claim-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.claim-text {
+  font-weight: 600;
+  font-size: 15px;
+  color: #202124;
+  flex: 1;
+  padding-right: 8px;
+}
+
+.claim-rating {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
+  background-color: #f1f3f4;
+  color: #202124;
+}
+
+.claim-rating.rating-true {
+  background-color: #e6f4ea;
+  color: #137333;
+}
+
+.claim-rating.rating-false {
+  background-color: #fce8e6;
+  color: #c5221f;
+}
+
+.claim-rating.rating-mixed,
+.claim-rating.rating-misleading {
+  background-color: #fef7e0;
+  color: #b06000;
+}
+
+/* Claim details */
+.claim-explanation {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #3c4043;
+  margin-bottom: 12px;
+}
+
+/* Sources section */
+.claim-sources {
+  background-color: #f9f9f9;
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.claim-sources h4 {
+  margin: 0 0 8px 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #5f6368;
+}
+
+.claim-sources ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.claim-sources li {
+  margin-bottom: 4px;
+}
+
+.claim-sources li:last-child {
+  margin-bottom: 0;
+}
+
+.claim-sources a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.claim-sources a:hover {
+  text-decoration: underline;
+} 

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FACTORIZER - Test Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #1a73e8;
+      margin-bottom: 20px;
+    }
+    .test-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      border-left: 4px solid #1a73e8;
+    }
+    .test-image {
+      max-width: 100%;
+      height: auto;
+      margin: 20px 0;
+      border: 1px solid #dadce0;
+    }
+    .test-text {
+      padding: 15px;
+      background-color: #e8f0fe;
+      border-radius: 4px;
+      margin: 20px 0;
+    }
+    .instructions {
+      margin-bottom: 15px;
+      font-style: italic;
+      color: #5f6368;
+    }
+    code {
+      background-color: #f1f3f4;
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>FACTORIZER Test Page</h1>
+  
+  <div class="test-section">
+    <h2>Test 1: Right-click on Image</h2>
+    <div class="instructions">
+      Right-click on the image below and check if you see the "Fact check this image" option in the context menu.
+    </div>
+    <img src="icons/icon128.png" alt="Test Image" class="test-image">
+  </div>
+  
+  <div class="test-section">
+    <h2>Test 2: Right-click on Selected Text</h2>
+    <div class="instructions">
+      Select the text below, right-click on it, and check if you see the "Fact check selected text" option in the context menu.
+    </div>
+    <div class="test-text">
+      The Earth is approximately 4.54 billion years old, and it revolves around the Sun in a nearly circular orbit.
+    </div>
+  </div>
+  
+  <div class="test-section">
+    <h2>Troubleshooting</h2>
+    <p>If context menu options do not appear:</p>
+    <ol>
+      <li>Open <code>chrome://extensions</code></li>
+      <li>Find FACTORIZER and click "Details"</li>
+      <li>Make sure "Site access" is set to "On all sites"</li>
+      <li>Enable "Allow in incognito"</li>
+      <li>Click the refresh/reload icon</li>
+      <li>Restart your browser</li>
+    </ol>
+    <p>Open the developer console (F12) before using this page to see debug messages.</p>
+  </div>
+</body>
+</html> 

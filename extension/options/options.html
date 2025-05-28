@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media Fact Checker Options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M9 12l2 2 4-4"></path>
+        </svg>
+      </div>
+      <h1>Social Media Fact Checker</h1>
+      <p class="subtitle">Extension Settings</p>
+    </header>
+    
+    <div class="options-container">
+      <section class="options-section">
+        <h2>API Configuration</h2>
+        <p class="section-description">
+          This extension uses the Perplexity Sonar API for fact-checking. You'll need to provide your own API key.
+          <a href="https://www.perplexity.ai/" target="_blank" class="info-link">Get a Perplexity API key</a>
+        </p>
+        
+        <div class="form-group">
+          <label for="api-key">Perplexity API Key</label>
+          <div class="input-group">
+            <input type="password" id="api-key" placeholder="Enter your API key here" />
+            <button id="toggle-key-visibility" class="icon-btn">
+              <svg id="show-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <svg id="hide-icon" class="hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                <line x1="1" y1="1" x2="23" y2="23"></line>
+              </svg>
+            </button>
+          </div>
+          <div class="form-description">Your API key will be stored securely on your device only.</div>
+        </div>
+      </section>
+
+      <section class="options-section">
+        <h2>Fact-Checking Settings</h2>
+        
+        <div class="form-group">
+          <label for="auto-check">Automatic Fact-Checking</label>
+          <div class="switch-group">
+            <label class="switch">
+              <input type="checkbox" id="auto-check">
+              <span class="slider round"></span>
+            </label>
+            <span id="auto-check-status">Off</span>
+          </div>
+          <div class="form-description">Automatically fact-check posts when they appear in your feed (uses more API calls)</div>
+        </div>
+
+        <div class="form-group">
+          <label for="check-threshold">Fact-Check Threshold</label>
+          <div class="range-group">
+            <input type="range" id="check-threshold" min="0" max="100" value="50">
+            <span id="threshold-value">50%</span>
+          </div>
+          <div class="form-description">Only fact-check posts that have a confidence score above this threshold</div>
+        </div>
+
+        <div class="form-group">
+          <label for="disabled-sites">Disabled Sites</label>
+          <div id="disabled-sites-list" class="disabled-sites-list">
+            <!-- This will be populated dynamically -->
+            <div class="empty-list">No sites have been disabled</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="options-section">
+        <h2>Display Options</h2>
+        
+        <div class="form-group">
+          <label for="theme">Theme</label>
+          <select id="theme">
+            <option value="system">System Default</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="show-sources">Show Sources</label>
+          <div class="switch-group">
+            <label class="switch">
+              <input type="checkbox" id="show-sources" checked>
+              <span class="slider round"></span>
+            </label>
+            <span id="sources-status">On</span>
+          </div>
+          <div class="form-description">Show sources in fact-check results</div>
+        </div>
+      </section>
+
+      <section class="options-section">
+        <h2>Privacy & Data</h2>
+        
+        <div class="form-group">
+          <div class="info-group">
+            <p>This extension only stores data locally on your device.</p>
+            <p>No personal information is collected or shared.</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button id="clear-data" class="btn-danger">Clear All Data</button>
+          <div class="form-description">Remove all saved history, preferences, and cached results</div>
+        </div>
+      </section>
+    </div>
+
+    <div class="button-bar">
+      <button id="save-btn" class="btn-primary">Save Settings</button>
+      <button id="restore-defaults-btn" class="btn-secondary">Restore Defaults</button>
+    </div>
+
+    <div id="status-message" class="status-message"></div>
+    
+    <footer>
+      <p>
+        Social Media Fact Checker Extension
+        <span class="version">v1.0.0</span>
+      </p>
+      <p>
+        <a href="https://github.com/jvivard/social-media-fact-checker" target="_blank">GitHub</a>
+        •
+        <a href="https://github.com/jvivard/social-media-fact-checker/issues" target="_blank">Report an Issue</a>
+      </p>
+    </footer>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html> 

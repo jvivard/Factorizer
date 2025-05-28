@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FACTORIZER</title>
+  <style>
+    body {
+      width: 320px;
+      height: 400px;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: #202124;
+      overflow-x: hidden;
+    }
+    .header {
+      background-color: #1a73e8;
+      color: white;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .content {
+      padding: 16px;
+    }
+    .stats-container {
+      margin-bottom: 24px;
+    }
+    .stats-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #202124;
+    }
+    .stat-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      padding: 8px;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+    }
+    .stat-label {
+      font-size: 14px;
+    }
+    .stat-value {
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .rating-true .stat-value {
+      color: green;
+    }
+    .rating-mostly-true .stat-value {
+      color: #4CAF50;
+    }
+    .rating-mixed .stat-value {
+      color: #FF9800;
+    }
+    .rating-mostly-false .stat-value {
+      color: #F44336;
+    }
+    .rating-false .stat-value {
+      color: red;
+    }
+    .rating-unknown .stat-value {
+      color: gray;
+    }
+    .total-stat {
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 12px;
+    }
+    .settings-container {
+      margin-top: 24px;
+    }
+    .setting-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 4px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .setting-label {
+      font-size: 14px;
+    }
+    .button {
+      display: block;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      margin: 16px auto 0;
+      transition: background-color 0.2s;
+    }
+    .button:hover {
+      background-color: #1558c4;
+    }
+    .version {
+      font-size: 12px;
+      color: #5f6368;
+      text-align: center;
+      margin-top: 16px;
+    }
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 24px;
+    }
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .3s;
+      border-radius: 24px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #1a73e8;
+    }
+    input:checked + .slider:before {
+      transform: translateX(16px);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>FACTORIZER</h1>
+  </div>
+  
+  <div class="content">
+    <div class="stats-container">
+      <div class="stats-title">Fact Check Statistics</div>
+      <div id="stats-list">
+        <div class="stat-item rating-true">
+          <span class="stat-label">True</span>
+          <span class="stat-value" id="stat-true">0</span>
+        </div>
+        <div class="stat-item rating-mostly-true">
+          <span class="stat-label">Mostly True</span>
+          <span class="stat-value" id="stat-mostly-true">0</span>
+        </div>
+        <div class="stat-item rating-mixed">
+          <span class="stat-label">Mixed</span>
+          <span class="stat-value" id="stat-mixed">0</span>
+        </div>
+        <div class="stat-item rating-mostly-false">
+          <span class="stat-label">Mostly False</span>
+          <span class="stat-value" id="stat-mostly-false">0</span>
+        </div>
+        <div class="stat-item rating-false">
+          <span class="stat-label">False</span>
+          <span class="stat-value" id="stat-false">0</span>
+        </div>
+      </div>
+      <div class="total-stat">
+        Total checks: <span id="stat-total">0</span>
+      </div>
+    </div>
+    
+    <div class="settings-container">
+      <div class="settings-title stats-title">Quick Settings</div>
+      <div class="setting-item">
+        <span class="setting-label">Show inline results</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="show-inline-toggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+    
+    <button id="options-btn" class="button">Open Options</button>
+    <button id="clear-cache-btn" class="button" style="margin-top: 8px;">Clear Cache</button>
+    
+    <div class="version">
+      Version 1.0
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html> 

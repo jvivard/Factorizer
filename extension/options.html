@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FACTORIZER - Options</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #202124;
+      line-height: 1.5;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    h1 {
+      color: #1a73e8;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: #5f6368;
+      font-size: 16px;
+    }
+    .section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+    }
+    h2 {
+      margin-top: 0;
+      color: #202124;
+      font-size: 18px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+    .input-description {
+      color: #5f6368;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #1a73e8;
+      box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+    }
+    .toggle-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+    }
+    .toggle-label {
+      font-weight: normal;
+    }
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 24px;
+    }
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .3s;
+      border-radius: 24px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #1a73e8;
+    }
+    input:checked + .slider:before {
+      transform: translateX(16px);
+    }
+    .button-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+    }
+    .button {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-left: 8px;
+      transition: background-color 0.2s;
+    }
+    .button:hover {
+      background-color: #1558c4;
+    }
+    .button-secondary {
+      background-color: #f8f9fa;
+      color: #5f6368;
+      border: 1px solid #dadce0;
+    }
+    .button-secondary:hover {
+      background-color: #f1f3f4;
+    }
+    .status {
+      display: none;
+      margin-top: 16px;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .status-success {
+      background-color: #e6f4ea;
+      color: #188038;
+    }
+    .status-error {
+      background-color: #fce8e6;
+      color: #d93025;
+    }
+    .info-box {
+      background-color: #e8f0fe;
+      padding: 12px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      border-left: 4px solid #1a73e8;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FACTORIZER</h1>
+    <div class="subtitle">Options</div>
+  </header>
+  
+  <div class="section">
+    <h2>API Configuration</h2>
+    <div class="info-box">
+      To use this extension, you need a Perplexity API key. 
+      Get yours at <a href="https://docs.perplexity.ai/docs/getting-started" target="_blank">docs.perplexity.ai</a>.
+    </div>
+    <div class="form-group">
+      <label for="api-key">Perplexity API Key</label>
+      <div class="input-description">Your API key is stored locally and only used for fact-checking requests.</div>
+      <input type="text" id="api-key" placeholder="Enter your Perplexity API key">
+    </div>
+    
+    <div class="form-group" style="margin-top: 20px;">
+      <label for="ocr-api-key">OCR API Key (for image fact-checking)</label>
+      <div class="info-box">
+        To enable fact-checking from images, you need an OCR API key. 
+        Get a free key at <a href="https://ocr.space/ocrapi" target="_blank">OCR.space</a>.
+      </div>
+      <div class="input-description">This key is used to extract text from images when using the right-click fact-check feature.</div>
+      <input type="text" id="ocr-api-key" placeholder="Enter your OCR.space API key">
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>Appearance Settings</h2>
+    <div class="toggle-container">
+      <span class="toggle-label">Show inline results on social media posts</span>
+      <label class="toggle-switch">
+        <input type="checkbox" id="show-inline-toggle" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>Behavior Settings</h2>
+    <div class="toggle-container">
+      <span class="toggle-label">Enable automatic fact-checking (experimental)</span>
+      <label class="toggle-switch">
+        <input type="checkbox" id="auto-check-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="input-description">
+      When enabled, the extension will automatically fact-check posts without requiring you to click the button.
+      This feature may use more API calls.
+    </div>
+  </div>
+  
+  <div class="button-container">
+    <button id="reset-btn" class="button button-secondary">Reset to Defaults</button>
+    <button id="save-btn" class="button">Save Settings</button>
+  </div>
+  
+  <div id="status" class="status"></div>
+  
+  <script src="options.js"></script>
+</body>
+</html> 
