@@ -9,6 +9,8 @@ A web application that allows users to upload screenshots of social media posts,
 - Fact-checking with Perplexity Sonar Pro API
 - Detailed analysis of claims with sources and citations
 - Responsive, modern UI with Tailwind CSS
+- Error handling and recovery
+- User-friendly interface
 
 ## Tech Stack
 
