@@ -85,6 +85,14 @@ Feel free to contribute by submitting pull requests or reporting issues!
 2. Click "Verify" to extract text and fact-check the content
 3. Review the fact-check results, including overall rating, claims analysis, and sources
 
+## Future Improvements
+
+- Enhanced accuracy with multi-model verification
+- Real-time social media integration
+- Browser extension for instant fact-checking
+- User accounts to save and track fact-checking history
+- Additional language support
+
 ## License
 
 MIT
