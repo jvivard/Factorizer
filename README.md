@@ -11,6 +11,7 @@ A web application that allows users to upload screenshots of social media posts,
 - Responsive, modern UI with Tailwind CSS
 - Error handling and recovery
 - User-friendly interface
+- Daily content updates
 
 ## Tech Stack
 
