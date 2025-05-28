@@ -13,13 +13,7 @@ FACTORIZER is a browser extension designed to help you quickly and easily fact-c
     *   A clear rating (e.g., True, Mostly False, Mixed).
     *   A concise explanation of the rating.
     *   Links to supporting sources.
-*   **Supported Platforms (for inline buttons):**
-    *   Twitter/X
-    *   Facebook
-    *   Instagram
-    *   LinkedIn
-    *   TikTok
-    *   *(Note: Platform layouts change frequently; selectors may need updates.)*
+
 *   **Customizable Options:**
     *   Configure your Perplexity API key.
     *   Configure your OCR.space API key (for image checking).
@@ -74,10 +68,11 @@ This project **does not** require a separate client or server component to run; 
 
 ### Usage
 
-*   **Inline Buttons:** Browse supported social media sites. FACTORIZER should automatically add "Fact Check" buttons to posts. Click these to get an analysis.
+*   **Inline Buttons:** Browse supported social media sites. FACTORIZER should automatically add "Fact Check" buttons to text. Click these to get an analysis.
 *   **Image Right-Click:** Right-click on an image on any webpage. If it contains text, select "Fact check this image" from the context menu.
 *   **Text Selection Right-Click:** Select any text on a webpage, right-click, and choose "Fact check selected text".
 *   **Popup:** Click the FACTORIZER icon in your toolbar to view statistics, access quick settings, or go to the main options page.
+*    ***NOTE***: Fact check on images is still in devleopment!!
 
 ## Built With
 
@@ -95,15 +90,6 @@ This project **does not** require a separate client or server component to run; 
 
 In an era of information overload, FACTORIZER was created to provide a simple, accessible tool for verifying information directly within social media feeds, empowering users to make more informed decisions.
 
-### What Was Learned
-
-This project involved learning about Manifest V3 extension development, integrating third-party APIs (Perplexity, OCR.space), asynchronous JavaScript, DOM manipulation for UI injection, and robust debugging techniques for browser environments.
-
-### Challenges Faced
-
-*   **Dynamic Social Media UIs:** Constantly changing HTML structures on social media sites require ongoing updates to CSS selectors for button injection.
-*   **API Model Name Volatility:** Perplexity API model names changed during development, requiring research and updates to maintain functionality.
-*   **Context Menu Reliability:** Ensuring context menus appear consistently across browser states.
 
 ## Contributing
 
