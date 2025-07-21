@@ -12,7 +12,7 @@ FACTORIZER is a browser extension designed to help you quickly and easily fact-c
 *   **AI-Powered Analysis:** Utilizes the Perplexity API to provide:
     *   A clear rating (e.g., True, Mostly False, Mixed).
     *   A concise explanation of the rating.
-    *   Links to supporting sources.
+   
 
 *   **Customizable Options:**
     *   Configure your Perplexity API key.
