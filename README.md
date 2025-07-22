@@ -6,7 +6,11 @@ FACTORIZER is a browser extension designed to help you quickly and easily fact-c
 
 ## Features
 
-*   **Inline Fact-Checking:** Adds "Fact Check" buttons directly to posts on supported social media platforms.
+* 
+
+https://github.com/user-attachments/assets/667aaff7-2d56-4b6d-9553-13b446aea1d9
+
+  **Inline Fact-Checking:** Adds "Fact Check" buttons directly to posts on supported social media platforms.
 *   **Image Fact-Checking:** Right-click on an image containing text to extract the text (via OCR.space API) and get a fact-check.
 *   **Selected Text Fact-Checking:** Right-click on any selected text on a webpage to initiate a fact-check.
 *   **AI-Powered Analysis:** Utilizes the Perplexity API to provide:
