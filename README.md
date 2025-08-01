@@ -101,4 +101,4 @@ While this project was developed as a demonstration, contributions or suggestion
 
 ## License
 
-This project is licensed under the MIT License - see the `LICENSE` file for details (if one is added, otherwise assume MIT). 
+This project is licensed under the MIT License 
