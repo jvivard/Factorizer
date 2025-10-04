@@ -26,7 +26,7 @@ function App() {
       setShowResults(false); // Reset results when new file is uploaded
       setError(null); // Clear any previous errors
       setExtractedText(""); // Clear any previously extracted text
-      setFactCheckResults(null); // Clear any previous fact-check results
+      setFactCheckResults(null); // Clear any previous 
 
       // Create image preview
       const reader = new FileReader();
